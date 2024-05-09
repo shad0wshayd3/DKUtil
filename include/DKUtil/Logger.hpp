@@ -80,11 +80,7 @@
 #	elif defined(SFSEAPI)
 #		define LOG_PATH "My Games\\Starfield\\SFSE\\Logs"sv
 #	elif defined(SKSEAPI)
-#		define IS_AE REL::Module::IsAE()
-#		define IS_SE REL::Module::IsSE()
-#		define IS_VR REL::Module::IsVR()
 #		define LOG_PATH "My Games\\Skyrim Special Edition\\SKSE"sv
-#		define LOG_PATH_VR "My Games\\Skyrim VR\\SKSE"sv
 #	else
 #		define LOG_PATH ""
 #		define PLUGIN_MODE
@@ -183,7 +179,7 @@ namespace DKUtil::Logger
 		path /= LOG_PATH;
 #elif defined(SKSEAPI)
 		path = detail::docs_directory();
-		path /= IS_VR ? LOG_PATH_VR : LOG_PATH;
+		path /= LOG_PATH;
 #elif defined(SFSEAPI)
 		path = detail::docs_directory();
 		path /= LOG_PATH;
@@ -220,7 +216,7 @@ namespace DKUtil::Logger
 #if defined(F4SEAPI)
 #	define MODE "Fallout 4"
 #elif defined(SKSEAPI)
-#	define MODE IS_VR ? "Skyrim VR" : "Skyrim Special Edition"
+#	define MODE "Skyrim Special Edition"
 #elif defined(SFSEAPI)
 #	define MODE "Starfield"
 #else
